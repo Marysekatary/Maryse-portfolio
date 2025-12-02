@@ -41,7 +41,7 @@ export default function ExperienceSection() {
         transition={{ duration: 0.6 }}
         className="text-3xl font-bold mb-12 text-indigo-400"
       >
-        Mon expérience professionnelle 💼
+        Expériences professionnelles 💼
       </motion.h2>
 
       <div className="max-w-4xl w-full space-y-8">
