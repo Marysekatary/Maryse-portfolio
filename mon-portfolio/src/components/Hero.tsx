@@ -10,8 +10,7 @@ export default function Hero() {
       className="flex flex-col items-center justify-between min-h-[110vh] px-6 md:px-16 pt-12 pb-10 gap-12"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-center w-full gap-12">
-        {/* Colonne texte */}
-        <div className="md:w-1/2 max-w-xl">
+        <div className="md:w-1/2 max-w-xl relative z-30">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -19,7 +18,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm text-gray-300 mb-5"
           >
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            En recherche de stage fin d&apos;études — Mars 2026
+            Développeuse logiciel en formation
           </motion.span>
 
           <motion.h1
@@ -70,26 +69,30 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="flex flex-wrap justify-center md:justify-start gap-3 mb-8"
+            className="flex flex-wrap justify-center md:justify-start gap-3 mb-10"
           >
-            {["Backend", "APIs", "Problem Solving", "Team Player", "Clean Code"].map(
-              (tag, index) => (
-                <motion.span
-                  key={tag}
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: [4, 0, 4], opacity: 1 }}
-                  transition={{
-                    delay: 1 + index * 0.1,
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/15 bg-white/5 backdrop-blur-sm"
-                >
-                  {tag}
-                </motion.span>
-              )
-            )}
+            {[
+              "Backend",
+              "APIs",
+              "Problem Solving",
+              "Team Player",
+              "Clean Code",
+            ].map((tag, index) => (
+              <motion.span
+                key={tag}
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: [4, 0, 4], opacity: 1 }}
+                transition={{
+                  delay: 1 + index * 0.1,
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/15 bg-white/5 backdrop-blur-sm"
+              >
+                {tag}
+              </motion.span>
+            ))}
           </motion.div>
 
           {/* CTA */}
@@ -130,12 +133,12 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="md:w-1/2 flex justify-center"
+          className="md:w-1/2 flex justify-center relative z-20"
         >
           <div className="relative w-64 h-64 md:w-80 md:h-80">
             {/* Glow animé derrière */}
             <motion.div
-              className="absolute -inset-4 rounded-full bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-sky-500 blur-3xl opacity-70"
+              className="absolute -inset-4 rounded-full bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-sky-500 blur-3xl opacity-70 z-0"
               animate={{ scale: [1, 1.06, 1], rotate: [0, 4, -3, 0] }}
               transition={{
                 duration: 8,
@@ -154,7 +157,7 @@ export default function Hero() {
               />
             </div>
 
-            {/* Badge focus déplacé + plus petit pour ne plus cacher le visage */}
+            {/* Badge focus */}
             <motion.div
               className="absolute -right-4 bottom-0 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 px-3 py-2 text-[10px] md:text-xs text-left shadow-lg z-30"
               animate={{ y: [0, -6, 0] }}
@@ -164,13 +167,13 @@ export default function Hero() {
                 Focus
               </p>
               <p className="font-semibold text-white">
-                Backend • APIs • Architecture
+                Backend • APIs • Clean Code
               </p>
             </motion.div>
 
-            {/* Orbite Epitech repositionnée pour ne pas gêner */}
+            {/* Orbite Epitech */}
             <motion.div
-              className="absolute -left-2 top-3 w-20 h-20 md:w-24 md:h-24 rounded-full border border-indigo-400/60 bg-indigo-500/10 backdrop-blur-md flex flex-col items-center justify-center text-[9px] md:text-[10px] text-indigo-100 z-10"
+              className="absolute -left-16 top-3 w-20 h-20 md:w-24 md:h-24 rounded-full border border-indigo-400/60 bg-indigo-500/10 backdrop-blur-md flex flex-col items-center justify-center text-[9px] md:text-[10px] text-indigo-100 z-10"
               animate={{ x: [0, 6, 0], y: [0, -4, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -178,23 +181,12 @@ export default function Hero() {
               <span>3ᵉ année</span>
             </motion.div>
 
-            {/* Petit label sous la photo */}
-            <motion.div
-              className="absolute left-1/2 -bottom-10 -translate-x-1/2 text-center text-xs text-gray-300"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-            >
-              <p>Développeuse backend en devenir ✨</p>
-              <p className="text-[11px] text-gray-500">
-                Typescript · Node.js · Architectures modulaires
-              </p>
-            </motion.div>
+
           </div>
         </motion.div>
       </div>
 
-      {/* Bandeau "highlights" en bas du hero pour étirer la page */}
+      {/* Bandeau "highlights"*/}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -249,7 +241,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hint scroll */}
         <motion.div
           className="mt-6 flex flex-col items-center gap-2 text-xs text-gray-500"
           animate={{ y: [0, 4, 0] }}

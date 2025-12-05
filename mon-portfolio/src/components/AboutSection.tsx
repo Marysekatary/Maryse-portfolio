@@ -11,11 +11,18 @@ const passions = [
     id: "music" as const,
     label: "Musique 🎧",
     description:
-      "La musique m’aide à me concentrer, à me motiver et parfois à m’évader. Elle rythme mes journées et stimule ma créativité.",
+      "La musique m’accompagne partout : pour me concentrer, me motiver ou juste me mettre dans un mood précis.",
     extra: (
       <ul className="text-sm text-indigo-300 mt-3 list-disc list-inside">
-        <li>Playlist focus : LoFi, Afro, RnB</li>
-        <li>Je code rarement sans un bon son 🎶</li>
+        <li>
+          Mon genre préféré : <span className="font-semibold">R&amp;B</span> 💜
+        </li>
+        <li>
+          J’écoute beaucoup de{" "}
+          <span className="font-semibold">musique de concentration</span>{" "}
+          (LoFi, chill, atmosphérique) quand je code.
+        </li>
+        <li>Un peu de rap aussi, quand j’ai besoin d’énergie 🔥</li>
       </ul>
     ),
   },
@@ -23,11 +30,15 @@ const passions = [
     id: "dance" as const,
     label: "Danse 💃🏾",
     description:
-      "La danse, c’est ma façon de tout lâcher : énergie, émotions, confiance. C’est là que je me dépasse le plus.",
+      "La danse, c’est là où je lâche tout : l’énergie, les émotions, la confiance. C’est un endroit où je me dépasse et où je m’affirme.",
     extra: (
       <p className="text-sm text-pink-300 mt-3">
-        Styles : Afro / Urbain / Moderne — j’adore apprendre de nouvelles
-        chorégraphies et ressentir la musique dans chaque mouvement 🫶
+        Je pratique surtout le{" "}
+        <span className="font-semibold">heels</span> et l&apos;
+        <span className="font-semibold">afrobeat</span>, et parfois un peu de{" "}
+        <span className="font-semibold">jazz</span>.  
+        J&apos;aime jouer avec les attitudes, les rythmes et la musicalité pour
+        raconter quelque chose avec le corps.
       </p>
     ),
   },
@@ -35,11 +46,20 @@ const passions = [
     id: "cinema" as const,
     label: "Cinéma 🎬",
     description:
-      "Le cinéma me fait voyager, réfléchir, rire, pleurer. J’aime les histoires qui restent en tête longtemps après le générique.",
+      "Le cinéma, c’est mon moyen de voyager sans bouger, de réfléchir, de rire, de pleurer et de m’attacher à des personnages.",
     extra: (
       <ul className="text-sm text-indigo-300 mt-3 list-disc list-inside">
-        <li>Genres : Sci-Fi, drame, animation</li>
-        <li>J’adore analyser les personnages et les univers 🌌</li>
+        <li>
+          J’adore les univers <span className="font-semibold">Marvel</span> 🦸‍♂️
+        </li>
+        <li>
+          Je suis fan de <span className="font-semibold">K-dramas</span> et de{" "}
+          <span className="font-semibold">comédies romantiques</span> 💕
+        </li>
+        <li>
+          Mon super-héros préféré :{" "}
+          <span className="font-semibold">Batman</span> 🦇
+        </li>
       </ul>
     ),
   },
@@ -66,7 +86,7 @@ export default function AboutSection() {
       id="about"
       className="relative min-h-screen flex flex-col justify-center items-center gap-16 px-6 md:px-20 py-24 overflow-hidden"
     >
-      {/* Fond dynamique selon la passion */}
+      {/* Fond dynamique*/}
       <motion.div
         className="absolute inset-0 -z-20"
         animate={{
@@ -80,7 +100,7 @@ export default function AboutSection() {
         <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(148,163,184,0.35)_1px,transparent_0)] [background-size:22px_22px]" />
       </div>
 
-      {/* Orbes lumineux comme le Hero */}
+      {/* Orbes lumineux */}
       <motion.div
         className="pointer-events-none absolute -top-20 left-[-40px] w-52 h-52 rounded-full bg-indigo-500/30 blur-3xl -z-10"
         animate={{ x: [0, 20, 0], y: [0, 10, 0], opacity: [0.25, 0.4, 0.25] }}
@@ -101,7 +121,6 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="relative w-72 h-72 md:w-80 md:h-80"
         >
-          {/* Halo derrière la carte */}
           <motion.div
             className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-sky-500 blur-3xl opacity-80"
             animate={{ scale: [1, 1.05, 1], rotate: [0, 4, -3, 0] }}
@@ -117,29 +136,17 @@ export default function AboutSection() {
             />
           </div>
 
-          {/* Badge année */}
-          <motion.div
-            className="absolute -left-4 top-6 rounded-2xl bg-black/60 border border-white/15 px-3 py-2 text-xs text-gray-100 backdrop-blur-md shadow-lg"
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <p className="text-[10px] uppercase tracking-[0.18em] text-gray-400">
-              Parcours
-            </p>
-            <p className="font-semibold">3ᵉ année — Epitech Paris</p>
-          </motion.div>
 
-          {/* Badge personnalité */}
           <motion.div
             className="absolute -right-3 bottom-4 rounded-2xl bg-white/10 border border-white/20 px-4 py-2 text-xs text-left backdrop-blur-md shadow-lg max-w-[180px]"
             animate={{ x: [0, 4, 0], y: [0, -3, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <p className="font-semibold text-white">
-              Déterminée, curieuse, impliquée.
             </p>
             <p className="text-[11px] text-gray-200/80">
-              Jamais loin d&apos;un challenge technique ou d&apos;une bonne playlist.
+              Jamais loin d&apos;un challenge technique, d&apos;une bonne
+              playlist ou d&apos;un bon film.
             </p>
           </motion.div>
         </motion.div>
@@ -153,7 +160,7 @@ export default function AboutSection() {
           className="flex-1 text-center lg:text-left"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-indigo-200">
-            À propos de moi ✨
+            À propos de moi
           </h2>
 
           <p className="text-gray-200 leading-relaxed mb-3">
@@ -189,9 +196,7 @@ export default function AboutSection() {
               </p>
               <p className="text-gray-100">
                 Résoudre des problèmes concrets, concevoir des{" "}
-                <span className="text-indigo-300 font-medium">
-                  APIs propres
-                </span>{" "}
+                <span className="text-indigo-300 font-medium">APIs propres</span>{" "}
                 et garder une vision long terme.
               </p>
             </div>
@@ -201,7 +206,9 @@ export default function AboutSection() {
               </p>
               <p className="text-gray-100">
                 Communication claire, documentation,{" "}
-                <span className="text-fuchsia-300 font-medium">esprit d&apos;équipe</span>{" "}
+                <span className="text-fuchsia-300 font-medium">
+                  esprit d&apos;équipe
+                </span>{" "}
                 et envie de progresser tous les jours.
               </p>
             </div>
@@ -231,15 +238,19 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Passions */}
           <div className="mb-4">
             <p className="text-gray-300 text-sm mb-3">
-              En dehors du code, je me retrouve dans trois univers qui me
-              ressemblent beaucoup :{" "}
+              En dehors du code, il y a trois univers qui me définissent
+              vraiment :{" "}
               <span className="text-indigo-300 font-medium">la musique</span>,{" "}
               <span className="text-pink-300 font-medium">la danse</span> et{" "}
-              <span className="text-indigo-300 font-medium">le cinéma</span>.
-              Clique sur une passion pour plonger un peu plus dans mon univers 💜
+              <span className="text-indigo-300 font-medium">le cinéma</span>.  
+              <span className="block mt-1 text-indigo-200 font-medium">
+                Clique sur <span className="underline">Musique</span>,{" "}
+                <span className="underline">Danse</span> ou{" "}
+                <span className="underline">Cinéma</span> pour découvrir plus de détails
+                sur ce que j&apos;aime vraiment 
+              </span>
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3">
